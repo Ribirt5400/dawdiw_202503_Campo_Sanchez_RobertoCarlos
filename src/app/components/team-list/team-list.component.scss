@@ -1,0 +1,169 @@
+// Variables de colores
+$nba-blue: #1d428a;
+$nba-red: #c8102e;
+$nba-gold: #fdb927;
+$light-bg: #f0f0f0;
+$light-text: #000000;
+$dark-bg: #121212;
+$dark-text: #e0e0e0;
+$dark-card-bg: #1e1e1e; // Fondo más oscuro para tarjetas en modo oscuro
+
+// Estilos base
+.team-list {
+  padding: 2rem;
+  text-align: center;
+  padding-top: 80px; // Ajuste para el header fijo
+
+  h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: $nba-blue;
+    margin-bottom: 1.5rem;
+    padding-bottom: 50px;
+  }
+}
+
+// Grid de equipos
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); // Cuadrícula responsiva
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(120px, 1fr)
+    ); // Menos columnas en tablets
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(100px, 1fr)
+    ); // Menos columnas en móviles
+  }
+}
+
+// Tarjeta de equipo
+.team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 150px;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+  border: 2px solid $nba-gold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+// Contenedor del logo
+.team-logo-container {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  // Ajuste de tamaño en móviles
+  @media (max-width: 480px) {
+    max-width: 60px;
+  }
+}
+
+// Imagen del logo
+.team-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+
+  // Ajuste de tamaño en móviles
+  @media (max-width: 480px) {
+    max-width: 60px;
+  }
+}
+
+// Nombre del equipo
+.team-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: $nba-blue;
+
+  // Ajuste de tamaño en móviles
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+// 🌞 Modo Claro
+:host-context(.light-mode) {
+  background-color: $light-bg;
+  color: $light-text;
+
+  .team-list h2 {
+    color: $nba-blue;
+  }
+
+  .team-card {
+    background-color: white;
+    border: 2px solid $nba-gold;
+
+    .team-name {
+      color: $nba-blue;
+    }
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba($nba-blue, 0.2);
+      background-color: #333333;
+
+      .team-name {
+        color: white;
+      }
+    }
+  }
+}
+
+// 🌙 Modo Oscuro
+:host-context(.dark-mode) {
+  background-color: $dark-bg;
+  color: $dark-text;
+
+  .team-list h2 {
+    color: $nba-red; // Resalta mejor en fondo oscuro
+  }
+
+  .team-card {
+    background-color: #353535;
+    border: 2px solid $nba-red;
+
+    .team-name {
+      color: $nba-gold; // Mejor contraste en modo oscuro
+    }
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba($nba-gold, 0.2);
+      background-color: #d3d3d3;
+
+      .team-name {
+        color: black;
+      }
+    }
+  }
+}

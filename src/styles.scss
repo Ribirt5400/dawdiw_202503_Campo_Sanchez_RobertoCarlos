@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+// Variables de colores
+$light-bg-color: #F0F0F0;
+$dark-bg-color: #121212;
+$nba-blue: #1d428a;
+$nba-red: #c8102e;
+$nba-gold: #fdb927;
+$light-text: #000000;
+$dark-text: #e0e0e0;
+
+body {
+  background-color: $light-bg-color;
+  color: $light-text; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Modo Claro
+body.light-mode {
+  background-color: $light-bg-color;
+  color: $light-text;
+}
+
+// Modo Oscuro
+body.dark-mode {
+  background-color: $dark-bg-color;
+  color: $dark-text;
+}

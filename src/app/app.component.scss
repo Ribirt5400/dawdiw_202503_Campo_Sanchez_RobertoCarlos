@@ -1,0 +1,13 @@
+// Estilos globales
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  // Asegúrate de que el contenedor principal ocupe toda la pantalla
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }

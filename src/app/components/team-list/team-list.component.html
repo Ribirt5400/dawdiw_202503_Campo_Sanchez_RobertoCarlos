@@ -1,0 +1,14 @@
+<section class="team-list" [ngClass]="{'dark-mode': isDarkMode, 'light-mode': !isDarkMode}">
+<!-- <section class="team-list">     -->
+    <h2>Equipos de la NBA</h2>
+    <div class="teams-grid">
+        @for (team of teams; track team.id) {
+        <div class="team-card" (click)="viewTeamDetails(team.id)">
+            <div class="team-logo-container">
+                <img class="team-logo" [src]="team.logo" [alt]="team.name" />
+            </div>
+            <p class="team-name">{{ team.name }}</p> 
+        </div>
+        }
+    </div>
+</section>

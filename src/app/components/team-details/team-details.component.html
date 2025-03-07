@@ -1,0 +1,52 @@
+<div class="team-details" [ngClass]="{'dark-mode': isDarkMode, 'light-mode': !isDarkMode}">
+  <div class="team-header">
+    <img [src]="team.logo" [alt]="team.name" class="team-logo">
+    <h1>{{ team.name }}</h1>
+    <p class="team-conference">{{ team.conference }} Conference - {{ team.division }} Division</p>
+  </div>
+
+  <div class="team-content">
+    <!-- Jugadores -->
+    <section class="team-section">
+      <h2>Jugadores</h2>
+      <div class="players-grid">
+        @for (player of team.players; track player.name) {
+        <div class="player-card">
+          <img [src]="player.photo" [alt]="player.name" class="player-photo">
+          <p class="player-name">{{ player.name }}</p>
+          <p class="player-position">{{ player.position }}</p>
+        </div>
+        }
+      </div>
+    </section>
+
+    <!-- Entrenador -->
+    <section class="team-section">
+      <h2>Entrenador</h2>
+      <div class="coach-card">
+        <img [src]="team.coach.photo" [alt]="team.coach.name" class="coach-photo">
+        <p class="coach-name">{{ team.coach.name }}</p>
+      </div>
+    </section>
+
+    <!-- Títulos -->
+    <section class="team-section">
+      <h2>Títulos</h2>
+      <div class="titles-grid">
+        @for (title of team.titles; track title) {
+        <div class="title-card">{{ title }}</div>
+        }
+      </div>
+    </section>
+
+    <!-- Números retirados -->
+    <section class="team-section">
+      <h2>Números retirados</h2>
+      <div class="retired-numbers-grid">
+        @for (number of team.retired_numbers; track number) {
+        <div class="number-card">{{ number }}</div>
+        }
+      </div>
+    </section>
+  </div>
+</div>
